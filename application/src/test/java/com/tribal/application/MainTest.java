@@ -1,7 +1,5 @@
 package com.tribal.application;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
 /**
@@ -15,7 +13,5 @@ public class MainTest
     @Test
     public void basic()
     {
-        Engine engine = new Engine();
-        engine.run();
     }
 }
