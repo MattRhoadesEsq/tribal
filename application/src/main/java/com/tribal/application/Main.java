@@ -1,5 +1,6 @@
 package com.tribal.application;
 
+import org.apache.log4j.BasicConfigurator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,7 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Main
 {
-        public static void main(String[] args) {
-            SpringApplication.run(Main.class, args);
-        }
+    public static void main(String[] args) {
+        Logging.initialize();
+
+        SpringApplication.run(Main.class, args);
+    }
+
 }
