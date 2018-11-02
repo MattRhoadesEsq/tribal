@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2024bdd-7e01-41ab-bf90-0f8124147d67" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/tribal/application/Logging.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="a2024bdd-7e01-41ab-bf90-0f8124147d67" name="Default" comment="Added log4j logging">
+      <change afterPath="$PROJECT_DIR$/tribalQA/src/main/java/com/tribal/qa/harness/Logging.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tribalQA/src/main/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/application/application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/tribal/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/tribal/application/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/tribal/application/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/tribal/application/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tribalQA/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tribalQA/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tribalQA/src/main/java/com/tribal/qa/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/tribalQA/src/main/java/com/tribal/qa/harness/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tribalQA/tribalQA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tribalQA/tribalQA.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/application/target/" />
     <ignored path="$PROJECT_DIR$/tribalQA/target/" />
@@ -37,39 +34,40 @@
           <entry key="dockerfile" value="1" />
           <entry key="gitignore" value="2" />
           <entry key="iml" value="2" />
-          <entry key="java" value="23" />
+          <entry key="java" value="28" />
           <entry key="log" value="1" />
           <entry key="md" value="2" />
-          <entry key="properties" value="5" />
-          <entry key="xml" value="4" />
+          <entry key="properties" value="6" />
+          <entry key="xml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="23" />
+          <entry key="JAVA" value="28" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Properties" value="5" />
-          <entry key="XML" value="4" />
+          <entry key="Properties" value="6" />
+          <entry key="XML" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dockerfile" value="6" />
           <entry key="gitignore" value="49" />
-          <entry key="java" value="828" />
+          <entry key="java" value="916" />
           <entry key="md" value="273" />
           <entry key="properties" value="10" />
-          <entry key="xml" value="108" />
+          <entry key="txt" value="21" />
+          <entry key="xml" value="110" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="828" />
-          <entry key="PLAIN_TEXT" value="328" />
+          <entry key="JAVA" value="916" />
+          <entry key="PLAIN_TEXT" value="349" />
           <entry key="Properties" value="10" />
-          <entry key="XML" value="108" />
+          <entry key="XML" value="110" />
         </counts>
       </usages-collector>
     </session>
@@ -79,26 +77,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+            <state relative-caret-position="394">
+              <caret line="46" selection-start-line="41" selection-end-line="46" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/src/main/resources/log4j.properties">
+        <entry file="file://$PROJECT_DIR$/tribalQA/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="119">
+              <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tribalQA/src/main/java/com/tribal/qa/harness/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/src/main/java/com/tribal/application/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" selection-start-line="3" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -134,6 +144,9 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/application/pom.xml" />
         <option value="$PROJECT_DIR$/application/src/main/java/com/tribal/application/Logging.java" />
+        <option value="$PROJECT_DIR$/tribalQA/src/main/java/com/tribal/qa/harness/Logging.java" />
+        <option value="$PROJECT_DIR$/tribalQA/pom.xml" />
+        <option value="$PROJECT_DIR$/tribalQA/src/main/java/com/tribal/qa/harness/Main.java" />
       </list>
     </option>
   </component>
@@ -204,14 +217,47 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tribal" type="b2602c69:ProjectViewProjectNode" />
               <item name="tribal" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="tribalQA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tribal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tribal" type="462c0819:PsiDirectoryNode" />
+              <item name="tribalQA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tribal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tribal" type="462c0819:PsiDirectoryNode" />
+              <item name="tribalQA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tribal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tribal" type="462c0819:PsiDirectoryNode" />
+              <item name="tribalQA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tribal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tribal" type="462c0819:PsiDirectoryNode" />
+              <item name="tribalQA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="harness" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tribal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tribal" type="462c0819:PsiDirectoryNode" />
+              <item name="tribalQA" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -224,7 +270,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541192444381" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541193872379" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -235,10 +281,12 @@
       <recent name="C:\Users\matt\tribal\tribal\application\src\main\java\com\tribal\application" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.tribal.qa.harness" />
       <recent name="com.tribal.application.dto" />
       <recent name="com.tribal.application" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\matt\tribal\tribal\tribalQA\src\main\resources" />
       <recent name="C:\Users\matt\tribal\tribal\application" />
     </key>
   </component>
@@ -254,9 +302,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main (1)">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.tribal.qa.harness.Main" />
+      <module name="tribalQA" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tribal.qa.harness.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -304,8 +366,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main (1)" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -321,13 +388,21 @@
       <option name="presentableId" value="Default" />
       <updated>1541012377107</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added log4j logging">
+      <created>1541192501994</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1541192501994</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21278317" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21278317" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -336,16 +411,16 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3298731" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3298731" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3298731" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39907727" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.3298731" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3298731" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3298731" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -362,6 +437,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added log4j logging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added log4j logging" />
+  </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
@@ -373,13 +452,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/src/main/java/com/tribal/application/Engine.java" />
-    <entry file="file://$PROJECT_DIR$/tribalQA/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/src/main/java/com/tribal/application/dto/TypedDTO.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -416,13 +488,6 @@
     <entry file="file://$PROJECT_DIR$/application/application.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/tribalQA/src/main/java/com/tribal/qa/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -454,10 +519,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/tribal/application/UserController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/PropertyConfigurator.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="167">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tribalQA/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tribalQA/src/main/java/com/tribal/qa/harness/Logging.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -466,11 +548,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/src/main/java/com/tribal/application/Logging.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="46" selection-start-line="41" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tribalQA/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -484,31 +587,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/src/main/resources/log4j.properties">
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/tribal/application/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="3" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/PropertyConfigurator.class">
+    <entry file="file://$PROJECT_DIR$/tribalQA/src/main/java/com/tribal/qa/harness/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+        <state relative-caret-position="272">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
