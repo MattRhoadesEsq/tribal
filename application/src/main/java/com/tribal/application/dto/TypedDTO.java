@@ -9,7 +9,7 @@ public class TypedDTO extends BaseDTO {
     protected TypedDTO(
         @JsonProperty("type") Class<?> type) {
 
-        this.type = type.getSimpleName();
+        this.type = type.getCanonicalName();
     }
 
     public String getType() {
