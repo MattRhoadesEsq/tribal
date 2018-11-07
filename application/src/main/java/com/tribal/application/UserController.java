@@ -3,10 +3,7 @@ package com.tribal.application;
 import com.tribal.application.dto.*;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value="/user")
@@ -18,8 +15,13 @@ public class UserController {
     public ResultDTO getUser(@RequestParam(value="email", defaultValue="foo@bar.com") String email) {
         logger.trace("GET");
 
-        UserDTO user = new UserDTO(email);
-        return new OkResultDTO(user);
+        User user = UserRepository.instance().getByEmail(email);
+        if (user == null) {
+            user = UserRepository.instance().add(email);
+        }
+
+        UserDTO dto = User.convertToDto(user);
+        return new OkResultDTO(dto);
     }
 
 }
