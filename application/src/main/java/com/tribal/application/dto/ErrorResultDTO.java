@@ -8,7 +8,7 @@ public class ErrorResultDTO extends ResultDTO {
     public ErrorResultDTO(
         @JsonProperty("message") String message) {
 
-        super(ErrorResultDTO.class, "ERROR");
+        super("ERROR");
     }
 
     public String getMessage() {

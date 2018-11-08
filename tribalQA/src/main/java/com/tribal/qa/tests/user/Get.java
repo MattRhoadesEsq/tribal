@@ -1,5 +1,6 @@
 package com.tribal.qa.tests.user;
 
+import com.tribal.application.dto.OkResultDTO;
 import com.tribal.application.dto.ResultDTO;
 import com.tribal.application.dto.UserDTO;
 import com.tribal.qa.harness.TAssert;
@@ -11,8 +12,13 @@ public class Get extends RestServiceTest {
     @Test
     public void get01() {
 
-        ResultDTO result = getRestClient().doGET();
-        TAssert.assertEquals(result.getStatus(), "OK", "Verify positive result");
+        ResultDTO response = getRestClient().doGET();
+        TAssert.assertEquals(response.getStatus(), "OK", "Verify positive response");
+
+        TAssert.assertInstanceOf(response, OkResultDTO.class, "Verify the correct response type");
+        OkResultDTO result = (OkResultDTO)response;
+
+        TAssert.assertInstanceOf(result.getResult(), UserDTO.class, "Verify the correct result type");
 
     }
 }

@@ -1,12 +1,11 @@
 package com.tribal.qa.webservices;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tribal.application.dto.BaseDTO;
 import com.tribal.application.dto.ErrorResultDTO;
 import com.tribal.application.dto.ResultDTO;
-import com.tribal.application.dto.TypedDTO;
 import com.tribal.qa.harness.HarnessException;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,6 +21,29 @@ public class RestClient extends HttpClient {
         return doGET("");
     }
 
+    public ResultDTO doGET(String path) {
+        try {
+            String response = doMethod(Method.GET, getServiceURL(path), null);
+            return (ResultDTO) RestClient.convertJsonToDTO(response);
+        } catch (IOException e) {
+            throw new HarnessException("Unable to REST GET", e);
+        }
+    }
+
+    public ResultDTO doPOST(BaseDTO dto) {
+        return doPOST("", dto);
+    }
+
+    public ResultDTO doPOST(String path, BaseDTO dto) {
+        try {
+            String request = RestClient.convertDtoToJson(dto);
+            String response = doMethod(Method.POST, getServiceURL(path), request);
+            return (ResultDTO) RestClient.convertJsonToDTO(response);
+        } catch (IOException e) {
+            throw new HarnessException("Unable to REST POST", e);
+        }
+    }
+
     public URL getServiceURL(String path) {
         String protocol = "http";
         String host = "localhost";
@@ -34,17 +56,13 @@ public class RestClient extends HttpClient {
         }
     }
 
-    public ResultDTO doGET(String path) {
+    public static String convertDtoToJson(BaseDTO dto) {
         try {
-            String response = doMethod(Method.GET, getServiceURL(path), null);
-            return (ResultDTO) RestClient.convertJsonToDTO(response);
-        } catch (IOException e) {
-            throw new HarnessException("Unable to REST GET", e);
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.writeValueAsString(dto);
+        } catch (JsonProcessingException e) {
+            throw new HarnessException("Unable to convert " + dto, e);
         }
-    }
-
-    public ResultDTO doPOST() {
-        throw new UnsupportedOperationException("implement me!");
     }
 
     public static BaseDTO convertJsonToDTO(String jsonString) {
@@ -73,7 +91,7 @@ public class RestClient extends HttpClient {
     public static String getDtoType(String jsonString) {
         try {
             JSONObject json = new JSONObject(jsonString);
-            String type = json.getString("type");
+            String type = json.getString("@class");
             return type;
         } catch (JSONException e) {
             throw new HarnessException("Unable to parse json: "+ jsonString, e);
@@ -83,6 +101,7 @@ public class RestClient extends HttpClient {
     public static ObjectMapper getDeserializer() {
         if (deserializer == null) {
             deserializer = new ObjectMapper();
+            deserializer.enableDefaultTyping(ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE);
         }
         return deserializer;
     }
