@@ -44,11 +44,29 @@ public class RestClient extends HttpClient {
         }
     }
 
+    public ResultDTO doDELETE(BaseDTO dto) {
+        return doPOST("", dto);
+    }
+
+    public ResultDTO doDELETE(String path, BaseDTO dto) {
+        try {
+            if (dto == null) {
+                String response = doMethod(Method.DELETE, getServiceURL(path), null);
+                return (ResultDTO) RestClient.convertJsonToDTO(response);
+            }
+            String request = RestClient.convertDtoToJson(dto);
+            String response = doMethod(Method.DELETE, getServiceURL(path), request);
+            return (ResultDTO) RestClient.convertJsonToDTO(response);
+        } catch (IOException e) {
+            throw new HarnessException("Unable to REST DELETE", e);
+        }
+    }
+
     public URL getServiceURL(String path) {
         String protocol = "http";
         String host = "localhost";
         int port = 8080;
-        String file = "/user";
+        String file = "/user" + path;
         try {
             return new URL(protocol, host, port, file);
         } catch (MalformedURLException e) {

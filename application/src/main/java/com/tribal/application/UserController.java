@@ -41,4 +41,16 @@ public class UserController {
         return new OkResultDTO(dto);
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+    public ResultDTO deleteUser(@PathVariable("id") String id) {
+
+        User user = UserRepository.instance().getById(id);
+        if (user == null) {
+            return new ErrorResultDTO("No such ID: "+ id);
+        }
+
+        UserRepository.instance().delete(id);
+        UserDTO dto = User.convertToDto(user);
+        return new OkResultDTO(dto);
+    }
 }
