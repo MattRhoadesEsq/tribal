@@ -21,6 +21,17 @@ public class TAssert {
         }
     }
 
+    public static void assertInstanceOf(Object actual, Class<?> expected, String message) {
+        checks++;
+        if (expected.isInstance(actual)) {
+            logger.info("assertInstanceOf("+ actual +" instanceof "+ expected +"): " + message);
+            pass++;
+        } else {
+            fail++;
+            throw new TAssertException("assertInstanceOf("+ actual +" instanceof "+ expected +"): " + message);
+        }
+    }
+
 
     public static class TAssertException extends AssertionError {
         public TAssertException(String message) {
