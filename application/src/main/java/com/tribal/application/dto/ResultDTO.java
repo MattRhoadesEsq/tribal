@@ -2,14 +2,12 @@ package com.tribal.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ResultDTO extends BaseDTO {
+public class ResultDTO extends TypedDTO {
     private String status;
+    private Object result;
 
-    public ResultDTO() {
-    }
-
-    public ResultDTO(
-            @JsonProperty("status") String status) {
+    protected ResultDTO(Class<?> type, String status) {
+        super(type);
 
         this.status = status;
     }
@@ -22,5 +20,14 @@ public class ResultDTO extends BaseDTO {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public Object getResult() {
+        return result;
+    }
+
+    public void setResult(Object result) {
+        this.result = result;
+    }
+
 
 }

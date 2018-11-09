@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tribal.application.dto.BaseDTO;
 import com.tribal.application.dto.ErrorResultDTO;
+import com.tribal.application.dto.OkResultDTO;
 import com.tribal.application.dto.ResultDTO;
 import com.tribal.qa.harness.HarnessException;
 import org.json.JSONException;
@@ -12,6 +13,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
 
 public class RestClient extends HttpClient {
 
@@ -92,6 +94,13 @@ public class RestClient extends HttpClient {
             Class<?> cls = Class.forName(type);
             BaseDTO dto = (BaseDTO) getDeserializer().readValue(jsonString, cls);
 
+            if (dto instanceof OkResultDTO) {
+                Map<?,?> m = (Map<?, ?>) ((OkResultDTO) dto).getResult();
+                JSONObject json = new JSONObject(m);
+                BaseDTO base = convertJsonToDTO(json.toString());
+                ((OkResultDTO) dto).setResult(base);
+            }
+
             // Check if the response was an error result
             if (dto instanceof ErrorResultDTO) {
                 throw new HarnessException("API ErrorResult: " + prettyPrintJson(jsonString));
@@ -109,7 +118,7 @@ public class RestClient extends HttpClient {
     public static String getDtoType(String jsonString) {
         try {
             JSONObject json = new JSONObject(jsonString);
-            String type = json.getString("@class");
+            String type = json.getString("type");
             return type;
         } catch (JSONException e) {
             throw new HarnessException("Unable to parse json: "+ jsonString, e);
@@ -119,7 +128,6 @@ public class RestClient extends HttpClient {
     public static ObjectMapper getDeserializer() {
         if (deserializer == null) {
             deserializer = new ObjectMapper();
-            deserializer.enableDefaultTyping(ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE);
         }
         return deserializer;
     }

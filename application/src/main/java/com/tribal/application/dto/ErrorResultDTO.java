@@ -5,10 +5,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ErrorResultDTO extends ResultDTO {
     private String message;
 
-    public ErrorResultDTO(
-        @JsonProperty("message") String message) {
+    public ErrorResultDTO() {
+        super(ErrorResultDTO.class, "ERROR");
+    }
 
-        super("ERROR");
+    public ErrorResultDTO(String message) {
+        super(ErrorResultDTO.class, "ERROR");
+
+        this.message = message;
     }
 
     public String getMessage() {

@@ -2,16 +2,17 @@ package com.tribal.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class UserDTO extends BaseDTO {
+public class UserDTO extends TypedDTO {
     private String id;
     private String email;
 
     public UserDTO() {
+        super(UserDTO.class);
     }
 
-    public UserDTO(
-            @JsonProperty("id") String id,
-            @JsonProperty("email") String email) {
+    public UserDTO(String id, String email) {
+        super(UserDTO.class);
+
         this.id = id;
         this.email = email;
     }

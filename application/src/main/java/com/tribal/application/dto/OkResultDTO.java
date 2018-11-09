@@ -5,22 +5,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class OkResultDTO extends ResultDTO {
 
-    @JsonProperty("result")
-    public BaseDTO result;
 
-    public OkResultDTO(
-        @JsonProperty("result") BaseDTO result) {
-        super("OK");
-
-        this.result = result;
+    public OkResultDTO() {
+        super(OkResultDTO.class, "OK");
     }
 
-    public BaseDTO getResult() {
-        return result;
+    public OkResultDTO(Class<?> type) {
+        super(type, "OK");
     }
 
-    public void setResult(BaseDTO result) {
-        this.result = result;
+    public OkResultDTO(Object result) {
+        super(OkResultDTO.class, "OK");
+
+        setResult(result);
     }
 
 
