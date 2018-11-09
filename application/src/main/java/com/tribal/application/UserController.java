@@ -5,6 +5,9 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping(value="/user")
 public class UserController {
@@ -25,16 +28,19 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResultDTO readUser(@RequestParam(value="email", defaultValue="foo@bar.com") String email) {
+    public ResultDTO readUser(@RequestParam(value="email", required = false) String email) {
         logger.trace("GET");
 
-        User user = UserRepository.instance().getByEmail(email);
-        if (user == null) {
-            user = UserRepository.instance().add(email);
+        if (email != null) {
+            User user = UserRepository.instance().getByEmail(email);
+            return new OkResultDTO(User.convertToDto(user));
         }
 
-        UserDTO dto = User.convertToDto(user);
-        return new OkResultDTO(dto);
+        List<BaseDTO> dtos = new ArrayList<>();
+        for (User u : UserRepository.instance().getAll()) {
+            dtos.add(User.convertToDto(u));
+        }
+        return new ListResultDTO(dtos);
     }
 
     public @ResponseBody ResultDTO updateUser(UserDTO dto) {

@@ -10,13 +10,6 @@ public class UserDTO extends TypedDTO {
         super(UserDTO.class);
     }
 
-    public UserDTO(String id, String email) {
-        super(UserDTO.class);
-
-        this.id = id;
-        this.email = email;
-    }
-
     public String getEmail() {
         return email;
     }

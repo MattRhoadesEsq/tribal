@@ -10,14 +10,18 @@ public class ListResultDTO extends ResultDTO {
         super(ListResultDTO.class, "OK");
     }
 
+    public ListResultDTO(List<BaseDTO> dtoList) {
+        super(ListResultDTO.class, "OK");
+
+        setResult(dtoList);
+    }
+
     public int getCount() {
-        if (getResult() == null) {
-            return 0;
-        }
-        if (getResult() instanceof List<?>) {
-            return ((List) getResult()).size();
-        }
-        throw new UnsupportedOperationException("Unhandled result type: "+ getResult().getClass());
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
 }

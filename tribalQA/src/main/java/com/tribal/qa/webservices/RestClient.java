@@ -2,10 +2,7 @@ package com.tribal.qa.webservices;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tribal.application.dto.BaseDTO;
-import com.tribal.application.dto.ErrorResultDTO;
-import com.tribal.application.dto.OkResultDTO;
-import com.tribal.application.dto.ResultDTO;
+import com.tribal.application.dto.*;
 import com.tribal.qa.harness.HarnessException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,6 +10,9 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RestClient extends HttpClient {
@@ -88,17 +88,45 @@ public class RestClient extends HttpClient {
     public static BaseDTO convertJsonToDTO(String jsonString) {
 
         try {
-            // The JSON object specifies its type, determine it  now
+
+            // The JSON object specifies its object type in the 'type' attribute.
+            // Determine the type, so we can create that class
             String type = getDtoType(jsonString);
-            // Create the DTO object
             Class<?> cls = Class.forName(type);
+
+            // De-serialize to that type
             BaseDTO dto = (BaseDTO) getDeserializer().readValue(jsonString, cls);
 
-            if (dto instanceof OkResultDTO) {
-                Map<?,?> m = (Map<?, ?>) ((OkResultDTO) dto).getResult();
-                JSONObject json = new JSONObject(m);
-                BaseDTO base = convertJsonToDTO(json.toString());
-                ((OkResultDTO) dto).setResult(base);
+            // Result objects contain String, DTO (Map), Array (List)
+            // The default serializer will not convert the attribute, so do it now.
+            if (dto instanceof ResultDTO) {
+
+                if (((ResultDTO) dto).getResult() instanceof Map<?,?>) {
+
+                    // Map is a JSONObject DTO
+                    Map<?,?> m = (Map<?, ?>) ((ResultDTO) dto).getResult();
+                    JSONObject json = new JSONObject(m);
+                    BaseDTO base = convertJsonToDTO(json.toString());
+                    ((ResultDTO) dto).setResult(base);
+
+                } else if (((ResultDTO) dto).getResult() instanceof List<?>) {
+
+                    // List is an array of JSONObject DTO
+                    List<BaseDTO> dtoList = new ArrayList<>();
+                    for (Object o : (List<?>) ((ResultDTO) dto).getResult()) {
+                        if (!(o instanceof Map<?,?>)) {
+                            throw new UnsupportedOperationException("Unable to parse result type: "+ o.getClass());
+                        }
+                        JSONObject json = new JSONObject((Map<?, ?>)o);
+                        BaseDTO base = convertJsonToDTO(json.toString());
+                        dtoList.add(base);
+
+                    }
+                    ((ResultDTO) dto).setResult(dtoList);
+                } else {
+                    throw new UnsupportedOperationException("Unable to parse result type: "+
+                            ((ResultDTO) dto).getResult().getClass());
+                }
             }
 
             // Check if the response was an error result

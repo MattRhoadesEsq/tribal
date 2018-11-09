@@ -1,6 +1,5 @@
 package com.tribal.application.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ResultDTO extends TypedDTO {
     private String status;
@@ -28,6 +27,5 @@ public class ResultDTO extends TypedDTO {
     public void setResult(Object result) {
         this.result = result;
     }
-
 
 }

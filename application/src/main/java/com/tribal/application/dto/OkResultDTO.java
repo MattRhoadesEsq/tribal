@@ -1,7 +1,7 @@
 package com.tribal.application.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class OkResultDTO extends ResultDTO {
 
@@ -10,15 +10,10 @@ public class OkResultDTO extends ResultDTO {
         super(OkResultDTO.class, "OK");
     }
 
-    public OkResultDTO(Class<?> type) {
-        super(type, "OK");
-    }
-
-    public OkResultDTO(Object result) {
+    public OkResultDTO(BaseDTO result) {
         super(OkResultDTO.class, "OK");
 
         setResult(result);
     }
-
 
 }

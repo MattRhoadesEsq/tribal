@@ -58,6 +58,15 @@ public class UserRepository {
     }
 
     /**
+     * Get all users.
+     *
+     * @return
+     */
+    public Set<User> getAll() {
+        return theUsers;
+    }
+
+    /**
      * Delete a user from a repository by id.
      *
      * @param id

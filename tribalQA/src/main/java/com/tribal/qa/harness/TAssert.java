@@ -10,6 +10,28 @@ public class TAssert {
     private static int pass = 0;
     private static int fail = 0;
 
+    public static void assertTrue(boolean actual, String message) {
+        checks++;
+        if (actual) {
+            logger.info("assertTrue("+ actual +"): " + message);
+            pass++;
+        } else {
+            fail++;
+            throw new TAssertException("assertTrue("+ actual +"): " + message);
+        }
+    }
+
+    public static void assertFalse(boolean actual, String message) {
+        checks++;
+        if (!actual) {
+            logger.info("assertFalse("+ actual +"): " + message);
+            pass++;
+        } else {
+            fail++;
+            throw new TAssertException("assertFalse("+ actual +"): " + message);
+        }
+    }
+
     public static void assertEquals(Object expected, Object actual, String message) {
         checks++;
         if (expected.equals(actual)) {
@@ -24,11 +46,11 @@ public class TAssert {
     public static void assertInstanceOf(Object actual, Class<?> expected, String message) {
         checks++;
         if (expected.isInstance(actual)) {
-            logger.info("assertInstanceOf("+ actual +" instanceof "+ expected +"): " + message);
+            logger.info("assertInstanceOf("+ actual.getClass() +" instanceof "+ expected +"): " + message);
             pass++;
         } else {
             fail++;
-            throw new TAssertException("assertInstanceOf("+ actual +" instanceof "+ expected +"): " + message);
+            throw new TAssertException("assertInstanceOf("+ actual.getClass() +" instanceof "+ expected +"): " + message);
         }
     }
 
