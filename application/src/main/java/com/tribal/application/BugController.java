@@ -45,7 +45,9 @@ public class BugController {
         if (bugMap.containsKey(intID)) {
             return bugMap.get(intID);
         }
-        return new Bug(1, "OPEN", "A sample description");
+
+        // If bug not found ...
+        return new Bug(1, "UNDEFINED", "BUG NOT FOUND");
     }
 
     public static class Bug {
