@@ -1,6 +1,7 @@
 package com.tribal.qa.tests.common.listeners;
 
 import com.tribal.qa.harness.HarnessException;
+import com.tribal.qa.harness.TestProperties;
 import com.tribal.qa.tests.common.TSkipException;
 import com.tribal.qa.webservices.HttpClient;
 import org.json.JSONException;
@@ -50,11 +51,16 @@ public class BugListener implements IInvokedMethodListener {
      */
     private String getStatus(String id) {
         try {
-            URL url = new URL("http", "localhost", 8080, "/bug?id=" + id);
+            String protocol = TestProperties.getInstance().getString("bug.server.protocol");
+            String host = TestProperties.getInstance().getString("bug.server.hostname");;
+            int port = TestProperties.getInstance().getInteger("bug.server.port");
+            String file = TestProperties.getInstance().getString("bug.server.file");
+
+            URL url = new URL(protocol, host, port, file);
             String jsonString = "TBD";
             try {
                 HttpClient client = new HttpClient();
-                jsonString = client.doMethod(HttpClient.Method.GET, url, null);
+                jsonString = client.doMethod(HttpClient.Method.GET, url, "?id="+ id);
                 JSONObject json = new JSONObject(jsonString);
                 return json.getString("status");
             } catch (IOException e) {

@@ -2,8 +2,11 @@ package com.tribal.qa.webservices;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tribal.application.dto.*;
+import com.tribal.application.dto.BaseDTO;
+import com.tribal.application.dto.ErrorResultDTO;
+import com.tribal.application.dto.ResultDTO;
 import com.tribal.qa.harness.HarnessException;
+import com.tribal.qa.harness.TestProperties;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -11,7 +14,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -65,9 +67,9 @@ public class RestClient extends HttpClient {
     }
 
     public URL getServiceURL(String path) {
-        String protocol = "http";
-        String host = "localhost";
-        int port = 8080;
+        String protocol = TestProperties.getInstance().getString("sut.server.protocol");
+        String host = TestProperties.getInstance().getString("sut.server.hostname");;
+        int port = TestProperties.getInstance().getInteger("sut.server.port");
         String file = "/user" + path;
         try {
             return new URL(protocol, host, port, file);

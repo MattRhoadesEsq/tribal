@@ -33,7 +33,6 @@ public class Logging {
 
         } catch (IOException e) {
             logger.error("Unable to load resource: "+ LOG4J_PROPERTIES, e);
-            e.printStackTrace();
         }
 
     }

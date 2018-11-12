@@ -71,7 +71,8 @@ public class TestHarness {
 
         // Load all classes in the jar
         // Filter based on a path
-        for (ClassPath.ClassInfo info : cp.getTopLevelClassesRecursive("com.tribal.qa.tests")) {
+        String path = TestProperties.getInstance().getString("testng.tests.package");
+        for (ClassPath.ClassInfo info : cp.getTopLevelClassesRecursive(path)) {
 
             // Find all methods in the class that are decorated with @Test annotation
             XmlClass xmlClass = null;
