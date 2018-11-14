@@ -76,4 +76,12 @@ public class TestProperties {
         return myProperties.getProperty(key, defaultValue);
     }
 
+    public boolean hasProperty(String key) {
+        return myProperties.containsKey(key);
+    }
+
+    public void setProperty(String key, Object value) {
+        logger.debug("(key, value) is ("+ key +", "+ value +")");
+        myProperties.setProperty(key, value.toString());
+    }
 }

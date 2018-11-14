@@ -37,7 +37,21 @@ public class TestHarness {
 
         // Create the suite
         XmlSuite xmlSuite = new XmlSuite();
-        // TODO: Set threads, etc.
+        if (TestProperties.getInstance().hasProperty("testng.xmlsuite.name")) {
+            xmlSuite.setName(TestProperties.getInstance().getProperty("testng.xmlsuite.name"));
+        }
+        if (TestProperties.getInstance().hasProperty("testng.xmlsuite.parallel")) {
+            String parallel = TestProperties.getInstance().getProperty("testng.xmlsuite.parallel");
+            if (parallel.equalsIgnoreCase("methods")) {
+                xmlSuite.setParallel(XmlSuite.ParallelMode.METHODS);
+            } else if (parallel.equalsIgnoreCase("classes")) {
+                xmlSuite.setParallel(XmlSuite.ParallelMode.CLASSES);
+            }
+        }
+        if (TestProperties.getInstance().hasProperty("testng.xmlsuite.thread-count")) {
+            int count = TestProperties.getInstance().getInteger("testng.xmlsuite.thread-count");
+            xmlSuite.setThreadCount(count);
+        }
 
         // Create the test with test classes/methods
         XmlTest myTest = new XmlTest(xmlSuite);

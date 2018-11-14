@@ -10,6 +10,28 @@ public class TAssert {
     private static int pass = 0;
     private static int fail = 0;
 
+    public static void assertNull(Object actual, String message) {
+        checks++;
+        if (actual == null) {
+            logger.info("assertNull("+ actual +"): " + message);
+            pass++;
+        } else {
+            fail++;
+            throw new TAssertException("assertNull("+ actual +"): " + message);
+        }
+    }
+
+    public static void assertNotNull(Object actual, String message) {
+        checks++;
+        if (actual != null) {
+            logger.info("assertNotNull("+ actual +"): " + message);
+            pass++;
+        } else {
+            fail++;
+            throw new TAssertException("assertNotNull("+ actual +"): " + message);
+        }
+    }
+
     public static void assertTrue(boolean actual, String message) {
         checks++;
         if (actual) {
@@ -40,6 +62,28 @@ public class TAssert {
         } else {
             fail++;
             throw new TAssertException("assertEquals("+ expected +", "+ actual +"): " + message);
+        }
+    }
+
+    public static void assertContains(String str, CharSequence substr, String message) {
+        checks++;
+        if (str.contains(substr)) {
+            logger.info("assertContains("+ str +" contains "+ substr +")): " + message);
+            pass++;
+        } else {
+            fail++;
+            throw new TAssertException("assertContains("+ str +" contains "+ substr +")): " + message);
+        }
+    }
+
+    public static void assertDoesNotContain(String str, CharSequence substr, String message) {
+        checks++;
+        if (!str.contains(substr)) {
+            logger.info("assertDoesNotContain("+ str +" does not contain "+ substr +"): " + message);
+            pass++;
+        } else {
+            fail++;
+            throw new TAssertException("assertDoesNotContain("+ str +" does not contain "+ substr +"): " + message);
         }
     }
 
